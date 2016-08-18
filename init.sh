@@ -1,7 +1,8 @@
 #!/bin/sh 
 DEMO="CDK Install Demo"
 AUTHORS="Andrew Block, Eric D. Schabell"
-PROJECT="git@github.com:redhatdemocentral/cdk-install-demo.git"
+ENHANCEMENT="Ishu Verma"
+PROJECT="git@github.com:ishuverma/cdk-install-demo-kvm.git"
 PRODUCT="Container Development Kit"
 CDK_HOME=./target
 SRC_DIR=./installs
@@ -39,6 +40,7 @@ echo "##            ####  #####   #     #   # #####   #                    ##"
 echo "##                                                                   ##"   
 echo "##                                                                   ##"   
 echo "##  brought to you by ${AUTHORS}                 ##"
+echo "##  brought to you by ${ENHANCEMENT}                 ##"
 echo "##                                                                   ##"   
 echo "##  ${PROJECT}            ##"
 echo "##                                                                   ##"   
@@ -107,6 +109,14 @@ if [[ -x $CDK_HOME ]]; then
 	echo
 	rm -rf $CDK_HOME
 fi
+
+# Prepare system by installing required repositories
+subscription-manager repos --enable rhel-server-rhscl-7-rpms
+
+
+
+
+
 
 # Run installation.
 #
